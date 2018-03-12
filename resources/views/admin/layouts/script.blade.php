@@ -10,6 +10,7 @@
 <script src="{{ asset('admin/bootstrap/js/bootstrap.min.js')}}"></script>
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+
 <script src="{{ asset('admin/plugins/morris/morris.min.js')}}"></script>
 <!-- Sparkline -->
 <script src="{{ asset('admin/plugins/sparkline/jquery.sparkline.min.js')}}"></script>
@@ -20,6 +21,7 @@
 <script src="{{ asset('admin/plugins/knob/jquery.knob.js')}}"></script>
 <!-- daterangepicker -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+
 <script src="{{ asset('admin/plugins/daterangepicker/daterangepicker.js')}}"></script>
 <!-- datepicker -->
 <script src="{{ asset('admin/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
@@ -31,7 +33,9 @@
 <script src="{{ asset('admin/plugins/fastclick/fastclick.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('admin/dist/js/app.min.js')}}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('admin/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('admin/dist/js/demo.js')}}"></script>
+
+@section('footerSection')
+
+    @show

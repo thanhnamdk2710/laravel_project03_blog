@@ -33,21 +33,22 @@
                     @include('includes.message')
                     
                     <!-- form start -->
-                    <form role="form" action="{{ route('post.store') }}" method="post">
+                    <form role="form" action="{{ route('post.update', $post->id) }}">
                         {{ csrf_field() }}
+                        {{ method_field('PUT') }}
                         <div class="box-body">
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="title">Post Title</label>
-                                    <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+                                    <input type="text" class="form-control" value="{{ $post->title }}" id="title" name="title" placeholder="Title">
                                 </div>
                                 <div class="form-group">
                                     <label for="subtitle">Post Sub Title</label>
-                                    <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="Sub Title">
+                                    <input type="text" class="form-control" value="{{ $post->subtitle }}" id="subtitle" name="subtitle" placeholder="Sub Title">
                                 </div>
                                 <div class="form-group">
                                     <label for="slug">Post Slug</label>
-                                    <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug">
+                                    <input type="text" class="form-control" value="{{ $post->slug }}" id="slug" name="slug" placeholder="Slug">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -83,7 +84,9 @@
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body pad">
-                                <textarea class="textarea" name="body" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                <textarea class="textarea" name="body" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                                    {{ $post->body }}
+                                </textarea>
                             </div>
                         </div>
 

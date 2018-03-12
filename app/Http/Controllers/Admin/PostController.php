@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\user\post;
+use App\Model\user\posts;
 
 class PostController extends Controller
 {
@@ -15,7 +15,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.post.index');
+        $posts = posts::all();
+
+        return view('admin.post.index', compact('posts'));
     }
 
     /**
@@ -43,7 +45,7 @@ class PostController extends Controller
             'body' => 'required',
         ]);
 
-        $post = new Post;
+        $post = new posts;
 
         $post->title = $request->title;
 
@@ -77,7 +79,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = posts::where('id', $id)->first();
+
+        return view('admin.post.edit', compact('post'));
     }
 
     /**
@@ -100,6 +104,8 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        posts::where('id', $id)->delete();
+
+        return redirect()->back();
     }
 }
