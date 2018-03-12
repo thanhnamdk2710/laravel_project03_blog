@@ -1,4 +1,4 @@
-@extends('user/app')
+@extends('user/layouts/app')
 
 @section('bg-img', asset('user/img/post-bg.jpg'))
 
