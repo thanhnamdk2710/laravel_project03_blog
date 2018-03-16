@@ -70,7 +70,7 @@
                                 <td>{{ $post->title }}</td>
                                 <td>{{ $post->subtitle }}</td>
                                 <td>{{ $post->slug }}</td>
-                                <td>{{ $post->create_at }}</td>
+                                <td>{{ $post->created_at->diffForHumans() }}</td>
                                 <td>
                                     <a href="{{ route('post.edit', $post->id) }}">
                                         <i class="glyphicon glyphicon-edit"></i>

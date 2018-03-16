@@ -67,8 +67,27 @@
                                 <td>{{ $loop->index + 1 }}</td>
                                 <td>{{ $category->name }}</td>
                                 <td>{{ $category->slug }}</td>
-                                <td> 4</td>
-                                <td>X</td>
+                                <td>
+                                    <a href="{{ route('category.edit', $category->id) }}">
+                                        <i class="glyphicon glyphicon-edit"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <form id="delete-form.{{ $category->id }}" method="post" action="{{ route('category.destroy', $category->id) }}">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                    </form>
+                                    <a href="" onclick="
+                                        if(confirm('Are you sure, You want to delete this?')){
+                                            event.preventDefault();
+                                            document.getElementById('delete-form.{{ $category->id }}').submit();
+                                        } else {
+                                            event.preventDefault();
+                                        }
+                                    ">
+                                        <i class="glyphicon glyphicon-trash"></i>
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -103,12 +122,5 @@
         $("#example1").DataTable();
     });
 </script>
-
-@endsection
-
-@section('footerSection')
-
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('admin/dist/js/pages/dashboard.js')}}"></script>
 
 @endsection

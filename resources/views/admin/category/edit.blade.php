@@ -33,17 +33,17 @@
                     @include('includes.message')
 
                     <!-- form start -->
-                    <form role="form" action="{{ route('tag.store') }}" method="post">
+                    <form role="form" action="{{ route('category.update', $category->id) }}" method="post">
                         {{ csrf_field() }}
-
+                        {{ method_field('PUT') }}
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="name">Tag Title</label>
-                                <input type="text" autofocus class="form-control" id="name" name="name" placeholder="Tag Title">
+                                <label for="name">Category Title</label>
+                                <input type="text" autofocus value="{{ $category->name }}" class="form-control" id="name" name="name" placeholder="Category Title">
                             </div>
                             <div class="form-group">
-                                <label for="slug">Tag Slug</label>
-                                <input type="text" class="form-control" id="slug" name="slug" placeholder="Tag Slug">
+                                <label for="slug">Category Slug</label>
+                                <input type="text" value="{{ $category->slug }}" class="form-control" id="slug" name="slug" placeholder="Category Slug">
                             </div>
                             
                         </div>
@@ -51,8 +51,8 @@
 
                         <div class="box-footer">
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            
-                            <a href="{{ route('tag.index') }}" class="btn btn-warning">Back</a>
+
+                            <a href="{{ route('category.index') }}" class="btn btn-warning">Back</a>
                         </div>
                     </form>
                 </div>
